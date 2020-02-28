@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2u^=c6x8iynyd)hxnsz_34)+w+zzsxl(g*lsfm-+et&8i-kk^%'
+SECRET_KEY = '9093do@9%nt3w@+@kyftau6bay795k#gp^p*ivxyy)_7@hl1-z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'librarymanagement.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,9 +120,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
-CRISPY_TEMPLATE_PACK='bootstrap4'
-
-LOGIN_REDIRECT_URL='booklist'
-LOGOUT_REDIRECT_URL='booklist'
