@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block book_store %}
+<div class="row">
+    <div class="col">
+        <div class='card'>
+            <div class='card-header'>Books in the store</div>
+<div class="card-body">
+   <table id='list_table' class="table table-striped table-bordered table-hover">
+       <thead>
+           <tr>
+               <td>
+                 TITLE  
+               </td>
+               <td>
+                ISBN  
+              </td>
+           </tr>
+       </thead>
+       <tbody>
+           {% for book_store in object_list %}
+             <tr>
+                 <td>
+                     {{ book_store.book_title }}
+                 </td>
+                 <td>
+                    {{ book_store.ISBN }}
+                </td>
+             </tr>
+           {% endfor %}
+       </tbody>
+   </table>
+</div>
+</div>
+    </div>
+
+</div>
+{%  endblock book_store %}
