@@ -1,0 +1,129 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management</title>
+    <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+
+
+
+<link href="{% static 'bootstrap/css/bootstrap.css' %}"rel="stylesheet">
+
+<link href="{% static 'bootstrap/css/bootstrap-grid.css' %}"rel="stylesheet">
+
+<link href="{% static 'bootstrap/css/bootstrap-grid.min.css' %}"rel="stylesheet">
+
+<link href="{% static 'bootstrap/css/bootstrap-reboot.css' %}"rel="stylesheet">
+
+<link href="{% static 'bootstrap/css/bootstrap-reboot.min.css' %}"rel="stylesheet">
+
+
+
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}"rel="stylesheet">
+
+ <link href="{% static 'js/dataTables/dataTables.bootstrap.css' %}"rel="stylesheet">
+  <!-- <link href="{% static 'js/dataTables.min.css' %}"rel="stylesheet"> -->
+  <link href="{% static 'js/search.css' %}"rel="stylesheet">
+</head>
+<body>
+  
+<!-- MENU NAVBAR -->
+        <div class="navbar navbar-inverse set-radius-zero" >
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">
+                      <a href="{% url 'booklist' %}" class="navbar-brand">
+                        <img src="{% static 'img/logo.png' %}" />
+                    </a>
+    
+                </div>
+    
+                <div class="right-div">
+                    {% if user.is_authenticated %}
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                        <a href="{% url 'instore' %}" class="btn btn-success">Books in the store</a>
+                        {% block add_button%}
+                        {% endblock add_button %}
+                        
+                   <a href="{% url 'logout' %}" class='btn btn-primary btn-md'>LOG OUT</a>  
+                 </li>
+                    </ul>
+               {% endif  %}
+                </div>
+            </div>
+        </div>
+
+        <div class="jumbotron">
+            {% block admin_dashboard %}
+{% endblock admin_dashboard %}
+
+{% block booklist %}
+{% endblock booklist %}
+
+{%block lendbook %}
+{% endblock lendbook %}
+
+{% block bookstaken %}
+{% endblock bookstaken %}
+
+{% block login %}
+{% endblock login %}
+
+{% block returner %}
+{% endblock returner %}
+
+{% block bookdetails %}
+{% endblock bookdetails %}
+
+{% block book_store %}
+{% endblock book_store %}
+        </div>
+               <!-- ADD BOOK MODEL  -->
+    <div class="modal fade" id="add_book" role="dialog">
+      <div class="modal-dialog modal-sm">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header" >
+              <h3 align="center">Add book</h3>
+            <button type="button" class="close" data-dismiss="modal" title="Close">&times;</button>  
+          </div>
+          <div class="modal-body">
+  
+              <div class='card'>
+                  <div class='card-header'>Add Book</div>
+                  <div class='card-body'>
+                     <form method="POST">{% csrf_token %}
+                         {{ form|crispy }}
+                         <input type="submit" value="Add" class='btn btn-primary'>
+                     </form> 
+                  </div>
+              </div>
+  
+           
+  
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- ADD BOOK MODEL END-->
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+
+ <script src="{% static 'js/dataTables/jquery.dataTables.js' %}"></script>
+ <!-- <script src="{% static 'js/dataTables/dataTables.bootstrap.js' %}"></script> -->
+ <!-- <script src="{% static 'js/datatablesbootstrap.min.js' %}"></script> -->
+<!-- <script src="{% static 'js/dataTables.min.js' %}"></script> -->
+
+
+<script src="{% static 'js/custom.js' %}"></script>
+<script src="{% static 'js/tables.js' %}"></script>
+
+</body>
+</html>
+

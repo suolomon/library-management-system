@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block bookdetails %}
+<div class='row'>
+    <div class='col'>
+        <div class='card'>
+            <div class='card-header'>Book Details</div>
+            <div class='card-body'>
+                <p><b>Title:</b> {{book_store.book_title}}</p>
+                <p><b>Author:</b> {{book_store.author}}</p>
+                <p><b> Publishing House:</b> {{book_store.publishing_house}}</p>
+                <p><b>ISBN:</b> {{book_store.ISBN}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock bookdetails %}

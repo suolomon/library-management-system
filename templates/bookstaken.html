@@ -1,0 +1,64 @@
+{%extends 'base.html' %}
+
+
+{% block bookstaken %}
+<form method="post">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <td>
+                    Book Title
+                </td>
+    
+                <td>
+                    Taken By
+                </td>
+    
+                <td>
+                    Date Taken
+                </td>
+    
+                <td>
+                    Status
+                </td>
+    
+                <td> 
+                    Action
+                </td>
+    
+            </tr>
+    
+        </thead>
+    
+        <tbody>
+            {% for client in object_list %}
+            <tr>
+                <td>
+                    {{ client.book_title}}
+                </td>
+    
+                <td>
+                    {{ client.name }}
+                </td>
+    
+                <td>
+                    {{ client.date_taken }}
+                </td>
+    
+                <td>
+                    {{ forms.as_p}}
+                </td>
+    
+                <td>
+                  
+                    <input type="submit" value="Return" class='btn btn-primary'>
+                </td>
+            </tr>
+            {% endfor %}
+    
+    
+        </tbody>
+    </table>
+
+</form>
+{% endblock bookstaken %}

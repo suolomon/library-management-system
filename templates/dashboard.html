@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block admin_dashboard %} 
+<a href="{% url 'logout' %}">Log out</a>
+<div class='row'>
+    <div class='col'>
+        <div class='card'>
+            <a href="{% url 'booklist' %}"class='btn btn-primary'><center>Books Available</center></a>
+            </div>
+
+        </div>
+
+    <div class='col'>
+        <div class='card'>
+            <a href="{% url 'lendbook' %}" class='btn btn-primary'><center>Lend Book</center></a>
+        </div>
+
+    </div>
+
+
+    <div class='col'>
+        <div class='card'>
+            <a href="{% url 'bookstaken' %}" class='btn btn-primary'><center>Books Taken</center></a>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock admin_dashboard %}
