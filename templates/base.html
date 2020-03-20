@@ -56,6 +56,15 @@
                 </div>
             </div>
         </div>
+       {% if user.is_authenticated %}
+       <div class='row '>
+        {% block total_books %}
+        {% endblock total_books %}
+        
+        {% block total_books_issued %}
+        {% endblock total_books_issued %}
+      </div>
+       {% endif %}
 
         <div class="jumbotron">
             {% block admin_dashboard %}

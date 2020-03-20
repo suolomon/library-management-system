@@ -20,6 +20,11 @@ class BookList(LoginRequiredMixin, CreateView, ListView):
     success_url = reverse_lazy('booklist')
     login_url = 'login'
 
+    def get_context_data(self,**kwargs):
+        context = super(BookList,self).get_context_data(**kwargs)
+        context['total_books'] = self.model.objects.all().count()
+        return context
+
 
 class LendBook(CreateView):
     model = Client

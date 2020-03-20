@@ -3,6 +3,22 @@
 {% block add_button %}
 <button type="button" data-toggle="modal" data-target="#add_book" class="btn btn-primary">+ ADD BOOK</button>
 {% endblock add_button %}
+{% block total_books %}
+<div class='col bg-secondary'>
+  <div class='badge badge-light'>
+    Books in the store:{{ total_books }}
+  </div>
+   </div>
+{% endblock total_books %}
+
+{% block total_books_issued %}
+<div class='col bg-secondary'>
+  <div class='badge badge-light'>
+    Books issued:{{ object_list.count }}
+  </div>
+   </div>
+{% endblock total_books_issued %}
+
 {% block booklist %}
 <style>
     .hide_taken{display: none;}
@@ -16,9 +32,7 @@
          No books issued yet click on lend button to issue out books.  <a href="{% url 'lendbook' %}" class="btn btn-primary">Lend</a>
 
         </p>
-        <p>
-           {{ client.name.count }}
-        </p>
+        
         {% endfor %}
     </div>
     <div class='col'>
