@@ -45,6 +45,6 @@ class Returner(DetailView, UpdateView):
     success_url = reverse_lazy('booklist')
 
 
-class bookdetails(DetailView):
+class BookDetails(DetailView):
     model = BookStore
     template_name = 'bookdetails.html'

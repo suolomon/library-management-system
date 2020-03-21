@@ -2,7 +2,7 @@ from django.urls import path
 
 from .views import (InStore, BookList,
                     LendBook, BooksTaken,
-                    Returner, bookdetails)
+                    Returner, BookDetails)
 
 urlpatterns = [
    path('booksinstore/', InStore.as_view(), name='instore'),
@@ -10,6 +10,6 @@ urlpatterns = [
    path('lendbook/', LendBook.as_view(), name='lendbook'),
    path('bookstaken/', BooksTaken.as_view(), name='bookstaken'),
    path('returner/<int:pk>', Returner.as_view(), name='returner'),
-   path('bookdetails/<int:pk>', bookdetails.as_view(), name='bookdetails'),
+   path('bookdetails/<int:pk>', BookDetails.as_view(), name='bookdetails'),
 
 ]
