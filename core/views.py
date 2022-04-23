@@ -23,9 +23,10 @@ class BookList(LoginRequiredMixin, CreateView, ListView):
     def get_context_data(self,**kwargs):
         context = super(BookList,self).get_context_data(**kwargs)
         context['total_books'] = self.model.objects.all().count()
+        context['total_issues'] = self.queryset.filter(status='taken').count()
         return context
 
-
+   
 class LendBook(CreateView):
     model = Client
     template_name = 'lendbook.html'
